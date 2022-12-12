@@ -1,0 +1,240 @@
+<!-- <form #f="ngForm">
+    <h1> Registration Form</h1>
+   
+        <div class="form-floating mb-3">
+            <input type="text" required minlength="2" pattern="[a-zA-Z]+" id="FirstNameBox" ngModel name="firstname" 
+            #firstName="ngModel" class="form-control" placeholder="First Name" autofocus="true">
+            <label for="FirstNameBox">First Name</label>
+        </div>
+
+     <div class="form-floating mb-3">
+        <input type="text" required minlength="2" pattern="[a-zA-Z]+" id="LastNameBox" ngModel name="lastname" 
+        #lastName="ngModel" class="form-control" placeholder="Last Name" autofocus="true">
+        <label for="LastNameBox">Last Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" required minlength="2" pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}" id="EmailBox" ngModel name="email" 
+        #email="ngModel" class="form-control" placeholder="email" autofocus="true">
+        <label for="EmailBox">Email</label>
+    </div>
+ 
+    <div class="form-floating mb-3">
+        <input type="text" required minlength="6"  id="PasswordBox" ngModel name="password" 
+        #password="ngModel" class="form-control" placeholder="password" autofocus="true" input type="password">
+        <label for="PasswordBox">Password</label>
+    </div>
+  
+    <div class="form-floating mb-3">
+        <input type="text" required minlength="10"  id="PhoneNumber" ngModel name="Phonenumber" 
+        #phonenumber="ngModel" class="form-control" placeholder="Phonenumber" autofocus="true">
+        <label for="PhoneNumber">PhoneNumber</label>
+    </div>
+
+
+<div class="row justify-content-center">
+<button type="submit" routerLink="/about" class="btn btn-primary" [disabled]="!f.valid" (click)="onClick(f.value)"
+[state]="{fname: f.value.firstname, lname: f.value.lastname, email: f.value.email}"> Submit</button>
+</div>
+</form> -->
+
+<form #f="ngForm">
+    <h1>Enter your credit card information</h1>
+      <div class="form-floating mb-3">
+        <input type="text" required minlength="2" pattern="[a-zA-Z\s]+"
+        id="CardNameBox" ngModel name="CardNameBox" #CardNameBox="ngModel"
+        class="form-control" placeholder="Card name" autofocus="true">
+        <label for="CardNameBox">Name on card<span style="color:red;"> *</span></label>
+      </div>
+    
+      <div class="alert alert-danger"
+      *ngIf="CardNameBox.touched &&!CardNameBox.valid">
+    <div *ngIf="CardNameBox.errors?.['required']">
+      Name is required</div>
+      <div *ngIf="CardNameBox.errors?.['pattern']">
+        Name must only be letters</div>
+        <div *ngIf="CardNameBox.errors?.['minlength']">
+          Name must be at least 2 characters</div>
+    </div>
+    
+    <div class="form-floating mb-3">
+      <input type="text" required minlength="10" maxlength= "10" pattern="[0-9]+"
+      id="CardNumberBox" ngModel name="CardNumberBox" #CardNumberBox="ngModel"
+      class="form-control" placeholder="Last name">
+      <label for="CardNumberBox">Card number<span style="color:red;"> *</span></label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="CardNumberBox.touched &&!CardNumberBox.valid">
+    <div *ngIf="CardNumberBox.errors?.['required']">
+    Card number is required</div>
+    <div *ngIf="CardNumberBox.errors?.['pattern']">
+      Card number must only be numbers</div>
+      <div *ngIf="CardNumberBox.errors?.['minlength']">
+        Card number must be at least 10 characters</div>
+        <div *ngIf="CardNumberBox.errors?.['maxlength']">
+            Card number can not exceed 10 numbers</div>
+    </div>
+
+    Expiration date:
+    <br>
+    <div class = "row g-2">
+<div class="col-md">
+    <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="department">
+      <option selected="selected" disabled value="">1</option>
+      <option *ngFor="let department of getAllDepartments()" value="{{department}}">{{department}}</option>
+    </select>
+    </div>
+    <div class="col-md">
+    <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="department">
+      <option selected="selected" disabled value="">2023</option>
+      <option *ngFor="let department of getAllDepartments2()" value="{{department}}">{{department}}</option>
+    </select>
+  </div>
+
+  <div class="col-md">
+  <div class="form-floating mb-3">
+    <input type="text" required minlength="3" maxlength ="4" pattern="[0-9]+"
+    id="SecurityBox" ngModel name="SecurityBox" #SecurityBox="ngModel"
+    class="form-control" placeholder="Email Address">
+    <label for="SecurityBox">Security Code<span style="color:red;"> *</span></label>
+  </div>
+  </div>
+  
+  <div class="alert alert-danger"
+  *ngIf="SecurityBox.touched &&!SecurityBox.valid">
+  <div *ngIf="SecurityBox.errors?.['required']">
+  Security code is required</div>
+  <div *ngIf="SecurityBox.errors?.['pattern']">
+    Security code must be numbers</div>
+    <div *ngIf="SecurityBox.errors?.['minlength']">
+      Security code must be at least 3 characters</div>
+  </div>
+
+  </div>
+    <br>
+    <h1>Enter your billing address</h1>
+
+    <div class="form-floating mb-3">
+      <input type="text" required minlength="2" pattern="[a-zA-z\s]+"
+      id="FullNameBox" ngModel name="FullNameBox" #FullNameBox="ngModel"
+      class="form-control" placeholder="Email Address">
+      <label for="FullNameBox">Full Name<span style="color:red;"> *</span></label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="FullNameBox.touched &&!FullNameBox.valid">
+    <div *ngIf="FullNameBox.errors?.['required']">
+    Full name is required</div>
+    <div *ngIf="FullNameBox.errors?.['pattern']">
+      Full Name must be letters only</div>
+      <div *ngIf="FullNameBox.errors?.['minlength']">
+        Full name must be at least 2 characters</div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" required minlength="2" pattern="[a-zA-Z0-9\s]+"
+      id="StreetBox" ngModel name="StreetBox" #StreetBox="ngModel"
+      class="form-control" placeholder="Email Address">
+      <label for="StreetBox">Street address<span style="color:red;"> *</span></label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="StreetBox.touched &&!StreetBox.valid">
+    <div *ngIf="StreetBox.errors?.['required']">
+    Street address is required</div>
+    <div *ngIf="StreetBox.errors?.['pattern']">
+      Street address is formatted incorrectly</div>
+      <div *ngIf="StreetBox.errors?.['minlength']">
+        Street address must be at least 2 characters</div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" minlength="2" pattern="[a-z0-9A-Z\s]+"
+      id="EmailBox" ngModel name="email" #email="ngModel"
+      class="form-control" placeholder="Email Address">
+      <label for="EmailBox">Apt/Suite/Other</label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="email.touched &&!email.valid">
+    <div *ngIf="email.errors?.['pattern']">
+      apt is formatted incorrectly</div>
+      <div *ngIf="email.errors?.['minlength']">
+        apt must be 2 characters</div>
+    </div>
+    
+    <div class = "row g-2">
+      <div class="col-md">
+    <div class="form-floating mb-3">
+      <input type="text" required minlength="5" maxlength="5" pattern="[0-9]+"
+      id="PasswordBox" ngModel name="password" #password="ngModel"
+      class="form-control" placeholder="Password" input type="text">
+      <label for="PasswordBox">Zip Code<span style="color:red;"> *</span></label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="password.touched &&!password.valid">
+    <div *ngIf="password.errors?.['required']">
+    Zip code is required</div> 
+    <div *ngIf="password.errors?.['pattern']">
+      Zip must only be numbers</div>
+      <div *ngIf="password.errors?.['minlength']">
+        Zip must be 5 characters</div>
+    </div>
+      </div>
+
+      
+      <div class="col-md">
+    <div class="form-floating mb-3">
+      <input appPhone type="text" required minlength="3" pattern="[a-zA-z\s]+"
+      id="PhoneNumBox" ngModel name="phone" #phone="ngModel"
+      class="form-control" placeholder="Phone Number">
+      <label for="PhoneNumBox">City<span style="color:red;"> *</span></label>
+    </div>
+    
+    <div class="alert alert-danger"
+    *ngIf="phone.touched &&!phone.valid">
+    <div *ngIf="phone.errors?.['required']">
+      Zip code is required</div> 
+    <div *ngIf="phone.errors?.['pattern']">
+      City is formatted wrong</div>
+      <div *ngIf="phone.errors?.['minlength']">
+        City is not long enough</div>
+    </div>
+      </div>
+    </div>
+    
+
+  
+
+    <div class="form-floating mb-3">
+        <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="phone">
+            <option selected="selected" disabled value="">State</option>
+            <option *ngFor="let department of getAllStates()" value="{{department}}">{{department}}</option>
+          </select>
+    </div>
+    
+
+    
+   
+    <br>
+    
+    <div class="row justify-content-center">
+    <!-- <button type="submit" class="btn btn-primary" (click)="onClick(f.value)"
+    routerLink="/about"
+    [state]="{
+      fname: f.value.firstName,
+      lname: f.value.lastName,
+      email:f.value.email
+    }"
+    (click)="onClick(f.value)"
+      [disabled]="!f.valid"> Sign up</button> -->
+    </div>
+     
+    <p>{{allInfo}}</p>
+    <p>{{allInfo2}}</p>
+    <!--
+     <input type="text" appFormatInput>       -->
+     <!--TODO : FINISH ADDING FIELDS, MAKE FIELDS SAME AS DOCUMENT-->
+      </form>
