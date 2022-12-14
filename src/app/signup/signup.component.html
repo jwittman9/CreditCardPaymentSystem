@@ -27,10 +27,9 @@
         <!-- Card number-->
       <input type="text" required minlength="15" 
       maxlength= "16" pattern="[0-9]+"
-      id="CardNumberBox" name="CardNumberBox" 
+      id="CardNumberBox" name="CardNumberBox" ngModel
       #CardNumberBox="ngModel"
-      class="form-control" placeholder="Card Number" 
-      [(ngModel)]="data.cardNumber">
+      class="form-control" placeholder="Card Number" >
       <label for="CardNumberBox">
         Card number<span style="color:red;"> *</span></label>
     </div>

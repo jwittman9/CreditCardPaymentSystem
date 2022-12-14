@@ -67,24 +67,19 @@ export class SignupComponent implements OnInit {
   state50= "Wisconsin";
   state21= "Wyoming";
 
-  data = {
-    cardNumber: ''
-  }
-
-
   deptArray:Array<string>=[];
   month1= "Jan - 1";
   month2= "Feb - 2";
   month3= "Mar - 3";
   month4= "Apr - 4";
-  object5= "May - 5";
-  object6= "June - 6";
-  object7= "July - 7";
-  object8= "Aug - 8";
-  object9= "Sept - 9";
-  object10= "Oct - 10";
-  object11= "Nov - 11";
-  object12= "Dec - 12";
+  month5= "May - 5";
+  month6= "June - 6";
+  month7= "July - 7";
+  month8= "Aug - 8";
+  month9= "Sept - 9";
+  month10= "Oct - 10";
+  month11= "Nov - 11";
+  month12= "Dec - 12";
   year2023="2023";
   year2024="2024";
   year2025="2025";
@@ -95,11 +90,10 @@ export class SignupComponent implements OnInit {
   year2030="2030";
   year2031="2031";
 
-
-
+  //this method returns all 50 states
   getAllStates(){
     this.stateArray=[];
-    this.stateArray.push(this.state1);
+    this.stateArray.push("Arkansas");
     this.stateArray.push(this.state2);
     this.stateArray.push(this.state3);
     this.stateArray.push(this.state4);
@@ -152,24 +146,25 @@ export class SignupComponent implements OnInit {
     return this.stateArray;
   }
 
-
+  //This method returns all the expiration day months
   getAllMonths(){
   this.deptArray=[];
   this.deptArray.push(this.month1);
   this.deptArray.push(this.month2);
   this.deptArray.push(this.month3);
   this.deptArray.push(this.month4);
-  this.deptArray.push(this.object5);
-  this.deptArray.push(this.object6);
-  this.deptArray.push(this.object7);
-  this.deptArray.push(this.object8);
-  this.deptArray.push(this.object9);
-  this.deptArray.push(this.object10);
-  this.deptArray.push(this.object11);
-  this.deptArray.push(this.object12);
+  this.deptArray.push(this.month5);
+  this.deptArray.push(this.month6);
+  this.deptArray.push(this.month7);
+  this.deptArray.push(this.month8);
+  this.deptArray.push(this.month9);
+  this.deptArray.push(this.month10);
+  this.deptArray.push(this.month11);
+  this.deptArray.push(this.month12);
   return this.deptArray;
 }
 
+//This method returns all the expiration years
 getAllYears(){
   this.deptArray=[];
   this.deptArray.push(this.year2023);
@@ -183,6 +178,4 @@ getAllYears(){
   this.deptArray.push(this.year2031);
   return this.deptArray;
 }
-
-
 }
