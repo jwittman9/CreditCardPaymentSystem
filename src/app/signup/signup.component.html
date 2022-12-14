@@ -58,7 +58,7 @@
     </div>
     
     <div class="form-floating mb-3">
-      <input type="text" required minlength="10" maxlength= "10" pattern="[0-9]+"
+      <input type="text" required minlength="15" maxlength= "16" pattern="[0-9]+"
       id="CardNumberBox" ngModel name="CardNumberBox" #CardNumberBox="ngModel"
       class="form-control" placeholder="Last name">
       <label for="CardNumberBox">Card number<span style="color:red;"> *</span></label>
@@ -71,9 +71,9 @@
     <div *ngIf="CardNumberBox.errors?.['pattern']">
       Card number must only be numbers</div>
       <div *ngIf="CardNumberBox.errors?.['minlength']">
-        Card number must be at least 10 characters</div>
+        Card number must be at least 15 characters</div>
         <div *ngIf="CardNumberBox.errors?.['maxlength']">
-            Card number can not exceed 10 numbers</div>
+            Card number can not exceed 16 numbers</div>
     </div>
 
     Expiration date:
