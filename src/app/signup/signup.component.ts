@@ -1,46 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { AngularFireDatabase } from '@angular/fire/compat/database';
-
-// @Component({
-//   selector: 'app-signup',
-//   templateUrl: './signup.component.html',
-//   styleUrls: ['./signup.component.css']
-// })
-// export class SignupComponent implements OnInit {
-
-
-
-// /*
-// onClick(v : any){
-// const itemsRef = this.db.list('/members');
-
-//     itemsRef.push({
-//     firstname : v.firstname,
-//     lastname : v.lastname,
-//     email : v.email
-//   })
-// }
-// */
-
-//   constructor(public db: AngularFireDatabase) { }
-
-
-// onClick(v:any){
-//   const itemsRef = this.db.list('/members');
-
-//   itemsRef.push({
-//     firstname : v.firstname,
-//     lastname : v.lastname,
-//     email : v.email
-//   });
-// }
-
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormsModule } from '@angular/forms';// ng model [()] bannan in a box
@@ -116,18 +73,18 @@ export class SignupComponent implements OnInit {
 
 
   deptArray:Array<string>=[];
-  month1= "1";
-  month2= "2";
-  month3= "3";
-  month4= "4";
-  object5= "5";
-  object6= "6";
-  object7= "7";
-  object8= "8";
-  object9= "9";
-  object10= "10";
-  object11= "11";
-  object12= "12";
+  month1= "Jan - 1";
+  month2= "Feb - 2";
+  month3= "Mar - 3";
+  month4= "Apr - 4";
+  object5= "May - 5";
+  object6= "June - 6";
+  object7= "July - 7";
+  object8= "Aug - 8";
+  object9= "Sept - 9";
+  object10= "Oct - 10";
+  object11= "Nov - 11";
+  object12= "Dec - 12";
   year2023="2023";
   year2024="2024";
   year2025="2025";
@@ -196,7 +153,7 @@ export class SignupComponent implements OnInit {
   }
 
 
-  getAllDepartments(){
+  getAllMonths(){
   this.deptArray=[];
   this.deptArray.push(this.month1);
   this.deptArray.push(this.month2);
@@ -213,7 +170,7 @@ export class SignupComponent implements OnInit {
   return this.deptArray;
 }
 
-getAllDepartments2(){
+getAllYears(){
   this.deptArray=[];
   this.deptArray.push(this.year2023);
   this.deptArray.push(this.year2024);
@@ -227,15 +184,5 @@ getAllDepartments2(){
   return this.deptArray;
 }
 
-
-
-allInfo:string="";
-allInfo2:string="";
-isSubscirbed=false;
-
-displayInfo(v:any){
-  this.allInfo=v.firstName+" "+v.lastName+" "+v.email+" "+v.phone+" "+ v.department+" "+v.options+" "+ v.checkbox1;
-  //proabbly useless code now
-}
 
 }
