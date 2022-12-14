@@ -110,7 +110,9 @@ export class SignupComponent implements OnInit {
   state50= "Wisconsin";
   state21= "Wyoming";
 
-
+  data = {
+    cardNumber: ''
+  }
 
 
   deptArray:Array<string>=[];
@@ -135,6 +137,7 @@ export class SignupComponent implements OnInit {
   year2029="2029";
   year2030="2030";
   year2031="2031";
+
 
 
   getAllStates(){
@@ -223,6 +226,9 @@ getAllDepartments2(){
   this.deptArray.push(this.year2031);
   return this.deptArray;
 }
+
+
+
 allInfo:string="";
 allInfo2:string="";
 isSubscirbed=false;

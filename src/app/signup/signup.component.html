@@ -41,7 +41,7 @@
 <form #f="ngForm">
     <h1>Enter your credit card information</h1>
       <div class="form-floating mb-3">
-        <input type="text" required minlength="2" pattern="[a-zA-Z\s]+"
+        <input type="text" required minlength="2" maxlength= "255" pattern="[a-zA-Z\s]+"
         id="CardNameBox" ngModel name="CardNameBox" #CardNameBox="ngModel"
         class="form-control" placeholder="Card name" autofocus="true">
         <label for="CardNameBox">Name on card<span style="color:red;"> *</span></label>
@@ -59,8 +59,8 @@
     
     <div class="form-floating mb-3">
       <input type="text" required minlength="15" maxlength= "16" pattern="[0-9]+"
-      id="CardNumberBox" ngModel name="CardNumberBox" #CardNumberBox="ngModel"
-      class="form-control" placeholder="Last name">
+      id="CardNumberBox" name="CardNumberBox" #CardNumberBox="ngModel"
+      class="form-control" placeholder="Last name" [(ngModel)]="data.cardNumber">
       <label for="CardNumberBox">Card number<span style="color:red;"> *</span></label>
     </div>
     
@@ -79,20 +79,20 @@
     Expiration date:
     <br>
     <div class = "row g-2">
-<div class="col-md">
+<div class="col">
     <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="department">
       <option selected="selected" disabled value="">1</option>
       <option *ngFor="let department of getAllDepartments()" value="{{department}}">{{department}}</option>
     </select>
     </div>
-    <div class="col-md">
+    <div class="col">
     <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="department">
       <option selected="selected" disabled value="">2023</option>
       <option *ngFor="let department of getAllDepartments2()" value="{{department}}">{{department}}</option>
     </select>
   </div>
 
-  <div class="col-md">
+  <div class="col">
   <div class="form-floating mb-3">
     <input type="text" required minlength="3" maxlength ="4" pattern="[0-9]+"
     id="SecurityBox" ngModel name="SecurityBox" #SecurityBox="ngModel"
@@ -116,7 +116,7 @@
     <h1>Enter your billing address</h1>
 
     <div class="form-floating mb-3">
-      <input type="text" required minlength="2" pattern="[a-zA-z\s]+"
+      <input type="text" required minlength="2" maxlength="255" pattern="[a-zA-z\s]+"
       id="FullNameBox" ngModel name="FullNameBox" #FullNameBox="ngModel"
       class="form-control" placeholder="Email Address">
       <label for="FullNameBox">Full Name<span style="color:red;"> *</span></label>
@@ -133,7 +133,7 @@
     </div>
 
     <div class="form-floating mb-3">
-      <input type="text" required minlength="2" pattern="[a-zA-Z0-9\s]+"
+      <input type="text" required minlength="2" maxlength="255" pattern="[a-zA-Z0-9\s]+"
       id="StreetBox" ngModel name="StreetBox" #StreetBox="ngModel"
       class="form-control" placeholder="Email Address">
       <label for="StreetBox">Street address<span style="color:red;"> *</span></label>
@@ -150,7 +150,7 @@
     </div>
 
     <div class="form-floating mb-3">
-      <input type="text" minlength="2" pattern="[a-z0-9A-Z\s]+"
+      <input type="text" minlength="2" maxlength="50" pattern="[a-z0-9A-Z\s]+"
       id="EmailBox" ngModel name="email" #email="ngModel"
       class="form-control" placeholder="Email Address">
       <label for="EmailBox">Apt/Suite/Other</label>
@@ -187,7 +187,7 @@
       
       <div class="col-md">
     <div class="form-floating mb-3">
-      <input appPhone type="text" required minlength="3" pattern="[a-zA-z\s]+"
+      <input appPhone type="text" required minlength="3" maxlength="50" pattern="[a-zA-z\s]+"
       id="PhoneNumBox" ngModel name="phone" #phone="ngModel"
       class="form-control" placeholder="Phone Number">
       <label for="PhoneNumBox">City<span style="color:red;"> *</span></label>
@@ -205,31 +205,17 @@
       </div>
     </div>
     
-
-  
-
     <div class="form-floating mb-3">
         <select class="form-select" id = "formselect1" aria-label="Default select example" ngModel name="phone">
             <option selected="selected" disabled value="">State</option>
             <option *ngFor="let department of getAllStates()" value="{{department}}">{{department}}</option>
           </select>
     </div>
-    
-
-    
-   
     <br>
     
     <div class="row justify-content-center">
-    <!-- <button type="submit" class="btn btn-primary" (click)="onClick(f.value)"
-    routerLink="/about"
-    [state]="{
-      fname: f.value.firstName,
-      lname: f.value.lastName,
-      email:f.value.email
-    }"
-    (click)="onClick(f.value)"
-      [disabled]="!f.valid"> Sign up</button> -->
+    <button type="submit" class="btn btn-primary"
+      [disabled]="!f.valid" onclick="wndow.location.reload();">Make Purchase</button>
     </div>
      
     <p>{{allInfo}}</p>
