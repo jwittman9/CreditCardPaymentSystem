@@ -51,37 +51,46 @@
 
         Expiration date:
         <br>
-        <div class="row g-2">
-          <div class="col">
-
+        <div class="row g-3">
+          <div class="col-md-4">
             <!-- Expiration Date -->
+            <div class="form-floating mb-3">
             <select class="form-select" required 
             id="formselect1" 
             aria-label="Default select example" ngModel
               name="expDateMonth">
               <option selected="selected" 
-              value="">Month</option>
+              value="">--Select Month--</option>
               <option 
               *ngFor="let months of GetAllMonths()" 
               value="{{months}}">{{months}}</option>
             </select>
+            <label for="expDateMonth">Month
+              <span style="color:red;"> *
+              </span></label>
+            </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
             <select class="form-select" required 
             id="formselect1" 
             aria-label="Default select example" ngModel
               name="expDateYear">
               <option selected="selected" 
-              value="">Year</option>
+              value="">--Select Year--</option>
               <option *ngFor="let years of GetAllYears()" 
               value="{{years}}">{{years}}</option>
             </select>
+            <label for="expDateYear">Year
+              <span style="color:red;"> *
+              </span></label>
+            </div>
           </div>
-          <div class="col">
-            <div class="form-floating mb-3">
 
+            <div class="col-md-4">
               <!-- Security Code -->
+              <div class="form-floating mb-3">
               <input type="text" required 
               minlength="3" maxlength="4" 
               pattern="[0-9]+" id="securityBox" 
@@ -92,8 +101,10 @@
               <label for="securityBox">
                 Security Code<span style="color:red;"> *
                 </span></label>
+              </div>
             </div>
-          </div>
+            </div>
+
 
           <div class="alert alert-danger" 
           *ngIf="securityBox.touched &&!securityBox.valid">
@@ -103,9 +114,7 @@
               Security code must be numbers</div>
             <div *ngIf="securityBox.errors?.['minlength']">
               Security code must be at least 3 characters</div>
-          </div>
-
-        </div>
+            </div>
         <br>
         <h1>Enter your billing address</h1>
         <br>
@@ -224,8 +233,9 @@
             </div>
           </div>
         </div>
-
-        <div class="form-floating mb-3">
+      <div class="row g-2">
+        <div class="col-md-6">
+        <div class="form-floating">
           <!-- State -->
           <select class="form-select" 
           required id="State" 
@@ -236,9 +246,13 @@
             <option *ngFor="let states of GetAllStates()" 
             value="{{states}}">{{states}}</option>
           </select>
+          <label for="state">
+            State<span style="color:red;"> *
+            </span></label>
         </div>
         <br>
-
+      </div>
+      </div>
         <div class="row justify-content-center">
           <button type="submit" class="btn btn-primary" 
           [disabled]="!f.valid" 

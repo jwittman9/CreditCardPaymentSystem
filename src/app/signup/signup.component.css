@@ -5,15 +5,15 @@ form{
 }
 button{
     width:50%;
-}
+} 
 h1{
     text-align:center;
 }
 
-#formselect1{
+/* #formselect1{
 width: 50%;
 
-}
+} */
 
 .expirationdate{
     display : inline-block;
