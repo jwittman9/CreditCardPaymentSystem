@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { FormsModule } from '@angular/forms';// ng model [()] bannan in a box
+import { FormsModule } from '@angular/forms';//enables the use of ng model 
 
 @Component({
   selector: 'app-signup',
@@ -16,19 +16,7 @@ export class SignupComponent implements OnInit {
 
   title = 'RegistrationForm';
   stateArray:Array<string>=[];
-  deptArray:Array<string>=[];
-
-  
-
-  
-  
-  
-
-  
-  
-
- 
-
+  dateArray:Array<string>=[];
 
   //this method returns all 50 states
   GetAllStates(){
@@ -41,7 +29,7 @@ export class SignupComponent implements OnInit {
     "New Jersey", "New Mexico", "New York", "North Carolina", 
     "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", 
     "Rhode Island", "South Carolina", "South Dakota", "Tennessee", 
-    "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia", 
+    "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia",
     "Wisconsin", "Wyoming"];
 
     return this.stateArray;
@@ -49,18 +37,18 @@ export class SignupComponent implements OnInit {
 
   //This method returns all the expiration day months
   GetAllMonths(){
-  this.deptArray=["Jan - 1", "Feb - 2", "Mar - 3", "Apr - 4", "May - 5",
+  this.dateArray=["Jan - 1", "Feb - 2", "Mar - 3", "Apr - 4", "May - 5",
   "June - 6", "July - 7", "Aug - 8", "Sept - 9", "Oct - 10", "Nov - 11",
   "Dec - 12"];
 
-  return this.deptArray;
+  return this.dateArray;
 }
 
 //This method returns all the expiration years
 GetAllYears(){
-  this.deptArray=["2023", "2024", "2025", "2026", "2027", "2028", "2029",
+  this.dateArray=["2023", "2024", "2025", "2026", "2027", "2028", "2029",
   "2030", "2031"];
 
-  return this.deptArray;
+  return this.dateArray;
 }
 }
